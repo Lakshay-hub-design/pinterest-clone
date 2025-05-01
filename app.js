@@ -8,6 +8,10 @@ const expressSession = require('express-session');
 require('dotenv').config(); // To load MONGO_URI
 const mongoose = require('mongoose');
 
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
