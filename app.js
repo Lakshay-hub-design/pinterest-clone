@@ -8,15 +8,6 @@ const expressSession = require('express-session');
 require('dotenv').config(); // To load MONGO_URI
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-}).then(() => {
-  console.log("✅ MongoDB Connected Successfully");
-}).catch((err) => {
-  console.error("❌ MongoDB Connection Error:", err);
-});
-
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
