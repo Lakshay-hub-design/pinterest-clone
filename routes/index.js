@@ -8,6 +8,11 @@ const upload = require('./multer')
 
 passport.use(new localStrategy(userModel.authenticate()));
 
+console.log('MONGODB_URI:', process.env.MONGODB_URI); // Debug line
+if (!process.env.MONGODB_URI) {
+  throw new Error('Missing MONGODB_URI in .env file');
+}
+
 router.get('/', function(req, res, next) {
   res.render('index', {nav: false});
 });
